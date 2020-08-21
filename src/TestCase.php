@@ -22,7 +22,7 @@ namespace LegacyPHPUnit;
 abstract class TestCase extends \PHPUnit\Framework\TestCase
 {
     /** {@inheritdoc} */
-    public static function setUpBeforeClass(): void
+    public static function setUpBeforeClass()
     {
         static::legacySetUpBeforeClass();
     }
@@ -32,7 +32,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     }
 
     /** {@inheritdoc} */
-    public static function tearDownAfterClass(): void
+    public static function tearDownAfterClass()
     {
         static::legacyTearDownAfterClass();
     }
@@ -42,7 +42,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     }
 
     /** {@inheritdoc} */
-    protected function setUp(): void
+    protected function setUp()
     {
         $this->legacySetUp();
     }
@@ -52,7 +52,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     }
 
     /** {@inheritdoc} */
-    protected function tearDown(): void
+    protected function tearDown()
     {
         $this->legacyTearDown();
     }
@@ -62,7 +62,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     }
 
     /** {@inheritdoc} */
-    protected function assertPreConditions(): void
+    protected function assertPreConditions()
     {
         $this->legacyAssertPreConditions();
     }
@@ -72,7 +72,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     }
 
     /** {@inheritdoc} */
-    protected function assertPostConditions(): void
+    protected function assertPostConditions()
     {
         $this->legacyAssertPostConditions();
     }

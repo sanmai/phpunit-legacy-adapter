@@ -19,11 +19,19 @@ declare(strict_types=1);
 
 namespace Tests\LegacyPHPUnit;
 
-use PHPUnit\Runner\AfterLastTestHook;
+use PHPUnit\Framework\TestListener;
+use PHPUnit\Framework\TestListenerDefaultImplementation;
 use SebastianBergmann\Diff\Differ;
 
-final class Tester implements AfterLastTestHook
+final class Tester implements TestListener
 {
+    use TestListenerDefaultImplementation;
+
+    public function endTestSuite()
+    {
+        $this->executeAfterLastTest();
+    }
+
     private static function assertSame(array $expected, array $actual)
     {
         if ($expected === $actual) {
@@ -44,7 +52,7 @@ final class Tester implements AfterLastTestHook
         exit(1);
     }
 
-    public function executeAfterLastTest(): void
+    public function executeAfterLastTest()
     {
         self::assertSame(Test::getExpectedCallSequence(), Test::getActualCallSequence());
     }
