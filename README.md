@@ -63,6 +63,7 @@ There are similar replacements for most other template method:
 
 ## Supported versions
 
-- 6.x version branch supports PHPUnit 6.x/5.x.
-- 8.x version branch supports PHPUnit 8.x/9.x.
+- 6.x version branch supports [PHPUnit 6](https://phpunit.de/getting-started/phpunit-6.html) and [PHPUnit 5](https://phpunit.de/getting-started/phpunit-5.html).
+- 8.x version branch supports [PHPUnit 8](https://phpunit.de/getting-started/phpunit-8.html) and [PHPUnit 9](https://phpunit.de/getting-started/phpunit-9.html).
+- [PHPUnit 7](https://phpunit.de/getting-started/phpunit-7.html) is not supported because it is feature-equivalent to PHPUnit 8.
 - Future versions will likely follow the same pattern.
