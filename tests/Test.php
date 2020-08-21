@@ -27,7 +27,7 @@ use LegacyPHPUnit\TestCase;
  */
 final class Test extends TestCase
 {
-    private const EXPECTED_SEQUENCE = [
+    const EXPECTED_SEQUENCE = [
         '::legacySetUpBeforeClass',
         '::legacySetUp',
         '::legacyAssertPreConditions',
