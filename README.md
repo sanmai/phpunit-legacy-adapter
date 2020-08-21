@@ -12,7 +12,7 @@ as mentioned, newer versions of PHPUnit require  `void` return type declarations
 rewriting tests to work without these template methods is a major pain and might be impossible even. And then this small library comes to save your day!
 
 ```
-composer require --dev sanmai/phpunit-legacy-adapter
+composer require --dev sanmai/phpunit-legacy-adapter:"^6 || ^8"
 ```
 
 First, update your tests to extend from `\LegacyPHPUnit\TestCase` instead of `\PHPUnit\Framework\TestCase`:
@@ -60,3 +60,9 @@ There are similar replacements for most other template method:
 - protected function assertPostConditions(): void
 + protected function legacyAssertPostConditions()
 ```
+
+## Supported versions
+
+- 6.x version branch supports PHPUnit 6.x/5.x.
+- 8.x version branch supports PHPUnit 8.x/9.x.
+- Future versions will likely follow the same pattern.
