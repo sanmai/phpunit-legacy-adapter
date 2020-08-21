@@ -29,7 +29,7 @@ Then, where you had to use `setUp(): void`  template method, use `legacySetUp()`
 + protected function legacySetUp()
 ```
 
-There similar replacements for most other template method:
+There are similar replacements for most other template method:
 
 ```diff
 - public static function setUpBeforeClass(): void
