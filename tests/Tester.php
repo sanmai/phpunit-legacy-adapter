@@ -30,18 +30,18 @@ final class Tester implements TestListener
         $this->executeAfterLastTest();
     }
 
-    private static function assertSame(array $expected, array $actual)
+    private static function assertSame($expected, $actual)
     {
         if ($expected === $actual) {
             return;
         }
 
-        if (\class_exists(Differ::class)) {
+        if (class_exists(Differ::class)) {
             echo "\n";
             $differ = new Differ();
             echo $differ->diff(
-                \var_export($actual, true),
-                \var_export($expected, true)
+                var_export($actual, true),
+                var_export($expected, true)
             );
         }
 

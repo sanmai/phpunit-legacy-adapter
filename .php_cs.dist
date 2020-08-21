@@ -49,7 +49,7 @@ return PhpCsFixer\Config::create()
         'phpdoc_to_comment' => false,
         'strict_comparison' => true,
         'comment_to_phpdoc' => true,
-        'native_function_invocation' => true,
+        'native_function_invocation' => false,
         'php_unit_test_case_static_method_calls' => false,
         'yoda_style' => true,
 
