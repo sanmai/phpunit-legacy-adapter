@@ -38,12 +38,12 @@ final class Test extends TestCase
 
     private static $callSequence = [];
 
-    public function testExample(): void
+    public function testExample()
     {
         $this->assertTrue(true);
     }
 
-    private static function add(string $methodName): void
+    private static function add(string $methodName)
     {
         self::$callSequence[] = $methodName;
     }
