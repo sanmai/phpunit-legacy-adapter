@@ -1,0 +1,37 @@
+{
+    "name": "sanmai/phpunit-legacy-adapter",
+    "type": "library",
+    "description": "PHPUnit Legacy Versions Adapter",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Alexey Kopytko",
+            "email": "alexey@kopytko.com"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "^8 || ^9"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.16"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "8.x-dev",
+            "dev-legacy": "6.x-dev"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "LegacyPHPUnit\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\LegacyPHPUnit\\": "tests/"
+        }
+    }
+}

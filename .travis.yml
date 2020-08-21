@@ -1,0 +1,29 @@
+language: php
+php:
+  - 7.2
+  - 7.3
+  - 7.4
+  - nightly
+
+stages:
+  - analyze
+  - test
+
+jobs:
+  fast_finish: true
+  allow_failures:
+    - nightly
+
+cache:
+  directories:
+    - $HOME/.composer
+    - build/cache
+
+install:
+  - phpenv config-rm xdebug.ini || true
+  - if [[ $TRAVIS_PHP_VERSION = nightly ]]; then export COMPOSER_FLAGS="--ignore-platform-reqs"; fi
+  - travis_retry composer install --prefer-dist $COMPOSER_FLAGS
+
+script:
+  - php vendor/bin/phpunit
+  - php vendor/bin/php-cs-fixer --dry-run --stop-on-violation fix

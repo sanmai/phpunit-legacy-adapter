@@ -1,0 +1,16 @@
+<phpunit bootstrap="vendor/autoload.php"
+         executionOrder="random"
+         resolveDependencies="true"
+         colors="true">
+
+    <testsuites>
+        <testsuite name="Default">
+            <directory>tests/</directory>
+        </testsuite>
+    </testsuites>
+
+<extensions>
+    <extension class="Tests\LegacyPHPUnit\Tester" />
+</extensions>
+
+</phpunit>
