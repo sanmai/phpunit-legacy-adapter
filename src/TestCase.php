@@ -15,8 +15,6 @@
  * limitations under the License.
  */
 
-declare(strict_types=1);
-
 namespace LegacyPHPUnit;
 
 abstract class TestCase extends \PHPUnit\Framework\TestCase

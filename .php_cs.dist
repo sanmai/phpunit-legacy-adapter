@@ -15,8 +15,6 @@
  * limitations under the License.
  */
 
-declare(strict_types=1);
-
 $header = <<<'EOF'
 Copyright 2020 Alexey Kopytko <alexey@kopytko.com>
 
@@ -56,6 +54,7 @@ return PhpCsFixer\Config::create()
         'yoda_style' => true,
 
         'void_return' => null,
+        'declare_strict_types' => false,
     ])
     ->setFinder(
         PhpCsFixer\Finder::create()
