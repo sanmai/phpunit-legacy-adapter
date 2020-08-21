@@ -16,7 +16,7 @@ jobs:
 
 cache:
   directories:
-    - $HOME/.composer
+    - $HOME/.composer/cache/files
     - build/cache
 
 install:
@@ -25,5 +25,5 @@ install:
   - travis_retry composer install --prefer-dist $COMPOSER_FLAGS
 
 script:
-  - php vendor/bin/phpunit
+  - php vendor/bin/phpunit --do-not-cache-result
   - PHP_CS_FIXER_IGNORE_ENV=1 php vendor/bin/php-cs-fixer --dry-run --stop-on-violation --diff fix
