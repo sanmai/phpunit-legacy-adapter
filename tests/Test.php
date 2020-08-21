@@ -46,14 +46,14 @@ final class Test extends TestCase
         self::$callSequence[] = $methodName;
     }
 
-    public static function getActualCallSequence(): array
+    public static function getActualCallSequence()
     {
         return self::$callSequence;
     }
 
-    public static function getExpectedCallSequence(): array
+    public static function getExpectedCallSequence()
     {
-        return \array_map(function (string $method): string {
+        return \array_map(function ($method) {
             return self::class.$method;
         }, self::EXPECTED_SEQUENCE);
     }
