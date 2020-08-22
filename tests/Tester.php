@@ -19,14 +19,13 @@ namespace Tests\LegacyPHPUnit;
 
 use PHPUnit\Framework\TestListener;
 use PHPUnit\Framework\TestListenerDefaultImplementation;
-use PHPUnit\Framework\TestSuite;
 use SebastianBergmann\Diff\Differ;
 
 final class Tester implements TestListener
 {
     use TestListenerDefaultImplementation;
 
-    public function endTestSuite(TestSuite $suite)
+    public function endTestSuite()
     {
         $this->executeAfterLastTest();
     }
