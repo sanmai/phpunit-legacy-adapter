@@ -9,8 +9,8 @@
         </testsuite>
     </testsuites>
 
-<extensions>
-    <extension class="Tests\LegacyPHPUnit\Tester" />
-</extensions>
+<listeners>
+    <listener class="Tests\LegacyPHPUnit\Tester" />
+</listeners>
 
 </phpunit>
