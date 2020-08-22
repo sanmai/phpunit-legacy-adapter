@@ -1,10 +1,10 @@
 [![Build Status](https://travis-ci.com/sanmai/phpunit-legacy-adapter.svg?branch=master)](https://travis-ci.com/sanmai/phpunit-legacy-adapter)
 
 As you're here, you are probably well aware that PHPUnit 8+ requires [common template methods](https://phpunit.readthedocs.io/en/latest/fixtures.html) 
-like `setUp()` or `tearDown()` to have a `void` return type declaration, which naturally break anything below PHP 7.1. 
+like `setUp()` or `tearDown()` to have a `void` return type declaration, which methods naturally break anything below PHP 7.1.
 
 Although it is not a big deal to automatically update your code to use these return type declaration with help from the likes of [PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) or [Rector](https://github.com/rectorphp/rector/blob/master/docs/rector_rules_overview.md#phpunit), 
-it might become a problem if, for whatever unfortunate reasons, you have to ensure your code is working under PHP 7.0 or earlier versions, all the 
+it might become a problem if, for whatever unfortunate (but, hopefully, lucrative) reasons, you have to ensure your code is working under PHP 7.0 or earlier versions, all the 
 while wanting using the best world can give you in the more-less recent versions of PHPUnit.
 
 In this case, you'll have two problems. One, newer versions of PHPUnit [do not have old assertions](https://thephp.cc/news/2019/02/help-my-tests-stopped-working), but you can find a way around this, and another,
