@@ -38,7 +38,7 @@ final class Test extends TestCase
 
     public function testExample()
     {
-        $this->assertTrue(true);
+        $this->assertTrue(count(self::$callSequence) > 0);
     }
 
     private static function add($methodName)
