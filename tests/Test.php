@@ -39,6 +39,13 @@ final class Test extends TestCase
     public function testExample()
     {
         $this->assertTrue(count(self::$callSequence) > 0);
+
+        if (count(self::$callSequence) > count(self::EXPECTED_SEQUENCE)) {
+            $this->assertSame(
+                array_slice(self::$callSequence, 0, count(self::EXPECTED_SEQUENCE)),
+                self::getExpectedCallSequence()
+            );
+        }
     }
 
     private static function add($methodName)

@@ -29,5 +29,5 @@ install:
   - travis_retry composer install --prefer-dist $COMPOSER_FLAGS
 
 script:
-  - php vendor/bin/phpunit
+  - php vendor/bin/phpunit --repeat=2
   - PHP_CS_FIXER_IGNORE_ENV=1 php vendor/bin/php-cs-fixer --dry-run --stop-on-violation --diff fix
