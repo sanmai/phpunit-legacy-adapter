@@ -61,6 +61,18 @@ There are similar replacements for most other template method:
 + protected function legacyAssertPostConditions()
 ```
 
+## Reference
+
+|  Method     | Replacement                   |
+| ----------- | ----------------------------- |
+| setUpBeforeClass(): void | legacySetUpBeforeClass() |
+| tearDownAfterClass(): void | legacyTearDownAfterClass() |
+| setUp(): void | legacySetUp() |
+| tearDown(): void | legacyTearDown() |
+| assertPreConditions(): void | legacyAssertPreConditions() |
+| assertPostConditions(): void | legacyAssertPostConditions() |
+
+
 ## Supported versions
 
 - 6.x version branch supports [PHPUnit 6](https://phpunit.de/getting-started/phpunit-6.html) and [PHPUnit 5](https://phpunit.de/getting-started/phpunit-5.html).
