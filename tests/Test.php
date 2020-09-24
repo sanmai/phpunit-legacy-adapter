@@ -25,14 +25,7 @@ use LegacyPHPUnit\TestCase;
  */
 final class Test extends TestCase
 {
-    const EXPECTED_SEQUENCE = [
-        '::legacySetUpBeforeClass',
-        '::legacySetUp',
-        '::legacyAssertPreConditions',
-        '::legacyAssertPostConditions',
-        '::legacyTearDown',
-        '::legacyTearDownAfterClass',
-    ];
+    const EXPECTED_SEQUENCE_LEN = 6;
 
     private static $callSequence = [];
 
@@ -40,9 +33,9 @@ final class Test extends TestCase
     {
         $this->assertTrue(count(self::$callSequence) > 0);
 
-        if (count(self::$callSequence) > count(self::EXPECTED_SEQUENCE)) {
+        if (count(self::$callSequence) > self::EXPECTED_SEQUENCE_LEN) {
             $this->assertSame(
-                array_slice(self::$callSequence, 0, count(self::EXPECTED_SEQUENCE)),
+                array_slice(self::$callSequence, 0, self::EXPECTED_SEQUENCE_LEN),
                 self::getExpectedCallSequence()
             );
         }
@@ -62,7 +55,14 @@ final class Test extends TestCase
     {
         return \array_map(function ($method) {
             return self::class.$method;
-        }, self::EXPECTED_SEQUENCE);
+        }, [
+            '::legacySetUpBeforeClass',
+            '::legacySetUp',
+            '::legacyAssertPreConditions',
+            '::legacyAssertPostConditions',
+            '::legacyTearDown',
+            '::legacyTearDownAfterClass',
+        ]);
     }
 
     public static function legacySetUpBeforeClass()
