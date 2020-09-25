@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.com/sanmai/phpunit-legacy-adapter.svg?branch=master)](https://travis-ci.com/sanmai/phpunit-legacy-adapter)
 
+### PHPUnit Legacy Versions Adapter
+
 As you're here, you are probably well aware that PHPUnit 8+ requires [common template methods](https://phpunit.readthedocs.io/en/latest/fixtures.html) 
 like `setUp()` or `tearDown()` to have a `void` return type declaration, which methods naturally break anything below PHP 7.1.
 
