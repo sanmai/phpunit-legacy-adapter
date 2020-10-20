@@ -16,7 +16,8 @@ jobs:
 
 cache:
   directories:
-    - $HOME/.composer/cache/files
+    - $HOME/.composer/cache
+    - $HOME/.cache
     - build/cache
 
 install:
