@@ -28,10 +28,9 @@ cache:
 
 install:
   - phpenv config-rm xdebug.ini || true
+  - composer remove --no-update --dev friendsofphp/php-cs-fixer
   - if [[ $TRAVIS_PHP_VERSION = nightly ]]; then export COMPOSER_FLAGS="--ignore-platform-reqs"; fi
-  - if [[ $TRAVIS_PHP_VERSION = 5.5 ]]; then composer remove --no-update --dev friendsofphp/php-cs-fixer; fi
   - travis_retry composer install --prefer-dist $COMPOSER_FLAGS
 
 script:
   - php vendor/bin/phpunit --repeat=2
-  - if [ -f vendor/bin/php-cs-fixer ]; then PHP_CS_FIXER_IGNORE_ENV=1 php vendor/bin/php-cs-fixer --dry-run --stop-on-violation --diff fix; fi
