@@ -69,12 +69,12 @@ There are similar replacements for most other template method:
 
 |  Method     | Replacement                   |
 | ----------- | ----------------------------- |
-| setUpBeforeClass(): void | legacySetUpBeforeClass() |
-| tearDownAfterClass(): void | legacyTearDownAfterClass() |
-| setUp(): void | legacySetUp() |
-| tearDown(): void | legacyTearDown() |
-| assertPreConditions(): void | legacyAssertPreConditions() |
-| assertPostConditions(): void | legacyAssertPostConditions() |
+| `setUpBeforeClass(): void` | `legacySetUpBeforeClass()` |
+| `tearDownAfterClass(): void` | `legacyTearDownAfterClass()` |
+| `setUp(): void` | `legacySetUp()` |
+| `tearDown(): void` | `legacyTearDown()` |
+| `assertPreConditions(): void` | `legacyAssertPreConditions()` |
+| `assertPostConditions(): void` | `legacyAssertPostConditions()` |
 
 
 ### Supported versions
@@ -86,10 +86,10 @@ There are similar replacements for most other template method:
 
 ### What this library does not do
 
-Altough this library solves the most annoying part of the problem, there are other parts the library was not designed to cover. For example:
+Although this library solves the most annoying part of the problem, there are other parts the library was not designed to cover. For example:
 
-- Some versions of PHPUnit allow `assertContains` to be used with string, while other do not. 
-- In some versions one method is called `expectExceptionMessageRegExp`, while in others the same method called `expectExceptionMessageMatches`.
+- Some versions of PHPUnit allow `assertContains` to be used with strings, while other do not. 
+- In some versions one method is called `expectExceptionMessageRegExp`, while in others the same method is called `expectExceptionMessageMatches`.
 - And so on and on.
 
 There might be a polyfill for these changed methods, but it should not be a big deal to write an ad hoc polyfill just for the methods you need. E.g.:
