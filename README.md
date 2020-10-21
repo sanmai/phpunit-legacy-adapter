@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.com/sanmai/phpunit-legacy-adapter.svg?branch=master)](https://travis-ci.com/sanmai/phpunit-legacy-adapter)
 
-### PHPUnit Legacy Versions Adapter
+## PHPUnit Legacy Versions Adapter
 
 As you're here, you are probably well aware that PHPUnit 8+ requires [common template methods](https://phpunit.readthedocs.io/en/latest/fixtures.html) 
 like `setUp()` or `tearDown()` to have a `void` return type declaration, which methods naturally break anything below PHP 7.1.
@@ -16,6 +16,8 @@ rewriting tests to work without these template methods is a major pain and might
 ```
 composer require --dev sanmai/phpunit-legacy-adapter:"^6 || ^8"
 ```
+
+### How to use
 
 First, update your tests to extend from `\LegacyPHPUnit\TestCase` instead of `\PHPUnit\Framework\TestCase`:
 
@@ -63,7 +65,7 @@ There are similar replacements for most other template method:
 + protected function legacyAssertPostConditions()
 ```
 
-## Reference
+### Reference
 
 |  Method     | Replacement                   |
 | ----------- | ----------------------------- |
@@ -75,9 +77,39 @@ There are similar replacements for most other template method:
 | assertPostConditions(): void | legacyAssertPostConditions() |
 
 
-## Supported versions
+### Supported versions
 
-- 6.x version branch supports [PHPUnit 6](https://phpunit.de/getting-started/phpunit-6.html) and [PHPUnit 5](https://phpunit.de/getting-started/phpunit-5.html).
+- 6.x version branch supports [PHPUnit 6](https://phpunit.de/getting-started/phpunit-6.html), [PHPUnit 5](https://phpunit.de/getting-started/phpunit-5.html), and [PHPUnit 4](https://phpunit.de/getting-started/phpunit-4.html).
 - 8.x version branch supports [PHPUnit 8](https://phpunit.de/getting-started/phpunit-8.html) and [PHPUnit 9](https://phpunit.de/getting-started/phpunit-9.html).
 - [PHPUnit 7](https://phpunit.de/getting-started/phpunit-7.html) is not supported because it is feature-equivalent to PHPUnit 8.
 - Future versions will likely follow the same pattern.
+
+### What this library does not do
+
+Altough this library solves the most annoying part of the problem, there are other parts the library was not designed to cover. For example:
+
+- Some versions of PHPUnit allow `assertContains` to be used with string, while other do not. 
+- In some versions one method is called `expectExceptionMessageRegExp`, while in others the same method called `expectExceptionMessageMatches`.
+- And so on and on.
+
+There might be a polyfill for these changed methods, but it should not be a big deal to write an ad hoc polyfill just for the methods you need. E.g.:
+
+```php
+    public function __call($method, $args)
+    {
+        if ($method === 'assertStringContainsString') {
+            $this->assertContains(...$args);
+        }
+        
+        if ($method === 'assertIsBool') {
+            $this->assertTrue(\is_bool($args[0]));
+        }
+        
+        if ($method === 'expectExceptionMessageRegExp') {
+            $this->expectExceptionMessageMatches(...$args);
+        }
+    }
+```
+
+If there's a modular multi-version polyfill for these and other methods, I'll be happy to include a link to it here.
+
