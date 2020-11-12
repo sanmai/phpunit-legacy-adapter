@@ -55,7 +55,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer update --optimize-autoloader --no-interaction --no-progress ${{ matrix.dependencies }}
+          composer update --optimize-autoloader --no-interaction --no-progress --prefer-lowest ${{ matrix.dependencies }}
 
       - name: Run tests
         run: |
