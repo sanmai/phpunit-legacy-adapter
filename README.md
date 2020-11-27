@@ -110,7 +110,7 @@ There might be a polyfill for these changed methods, but it should not be a big 
     }
 ```
 
-If there are several modular and not multi-version polyfills for these and other methods:
+If there are several modular (and not) multi-version polyfills for these, and other methods:
 
 - One of the most used is one that comes with [Symfony's PHPUnit Bridge](https://github.com/symfony/phpunit-bridge). You can [check the source here](https://github.com/symfony/phpunit-bridge/tree/5.x/Legacy).
 - There's [`yoast/phpunit-polyfills`](https://github.com/Yoast/PHPUnit-Polyfills/).
