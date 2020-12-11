@@ -25,12 +25,16 @@ use LegacyPHPUnit\TestCase;
  */
 final class Test extends TestCase
 {
-    const EXPECTED_SEQUENCE_LEN = 6;
+    const EXPECTED_SEQUENCE_LEN = 12;
 
     private static $callSequence = array();
 
     public function testExample()
     {
+        if (self::EXPECTED_SEQUENCE_LEN !== count(self::getExpectedCallSequence())) {
+            $this->fail(sprintf('EXPECTED_SEQUENCE_LEN needs an update to %d', count(self::getExpectedCallSequence())));
+        }
+
         $this->assertTrue(count(self::$callSequence) > 0);
 
         if (count(self::$callSequence) > self::EXPECTED_SEQUENCE_LEN) {
@@ -57,15 +61,31 @@ final class Test extends TestCase
             return __CLASS__.$method;
         }, array(
             '::legacySetUpBeforeClass',
+            '::doSetUpBeforeClass',
+
             '::legacySetUp',
+            '::doSetUp',
+
             '::legacyAssertPreConditions',
+            '::doAssertPreConditions',
+
             '::legacyAssertPostConditions',
+            '::doAssertPostConditions',
+
             '::legacyTearDown',
+            '::doTearDown',
+
             '::legacyTearDownAfterClass',
+            '::doTearDownAfterClass',
         ));
     }
 
     public static function legacySetUpBeforeClass()
+    {
+        self::add(__METHOD__);
+    }
+
+    public static function doSetUpBeforeClass()
     {
         self::add(__METHOD__);
     }
@@ -75,7 +95,17 @@ final class Test extends TestCase
         self::add(__METHOD__);
     }
 
+    public static function doTearDownAfterClass()
+    {
+        self::add(__METHOD__);
+    }
+
     protected function legacySetUp()
+    {
+        self::add(__METHOD__);
+    }
+
+    protected function doSetUp()
     {
         self::add(__METHOD__);
     }
@@ -85,12 +115,27 @@ final class Test extends TestCase
         self::add(__METHOD__);
     }
 
+    protected function doTearDown()
+    {
+        self::add(__METHOD__);
+    }
+
     protected function legacyAssertPreConditions()
     {
         self::add(__METHOD__);
     }
 
+    protected function doAssertPreConditions()
+    {
+        self::add(__METHOD__);
+    }
+
     protected function legacyAssertPostConditions()
+    {
+        self::add(__METHOD__);
+    }
+
+    protected function doAssertPostConditions()
     {
         self::add(__METHOD__);
     }
