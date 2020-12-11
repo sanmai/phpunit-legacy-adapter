@@ -17,12 +17,8 @@
 
 namespace LegacyPHPUnit;
 
-use LegacyPHPUnit\Concerns\SetUpTearDownTrait;
-
 abstract class TestCase extends \PHPUnit\Framework\TestCase
 {
-    use SetUpTearDownTrait;
-
     /** {@inheritdoc} */
     public static function setUpBeforeClass()
     {
@@ -63,5 +59,55 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     {
         $this->legacyAssertPostConditions();
         $this->doAssertPostConditions();
+    }
+
+    // All replacement methods should go below. They better to be in a trait, but we don't have traits in PHP 5.3.
+
+    public static function legacySetUpBeforeClass()
+    {
+    }
+
+    public static function doSetUpBeforeClass()
+    {
+    }
+
+    public static function legacyTearDownAfterClass()
+    {
+    }
+
+    public static function doTearDownAfterClass()
+    {
+    }
+
+    protected function legacySetUp()
+    {
+    }
+
+    protected function doSetUp()
+    {
+    }
+
+    protected function legacyTearDown()
+    {
+    }
+
+    protected function doTearDown()
+    {
+    }
+
+    protected function legacyAssertPreConditions()
+    {
+    }
+
+    protected function doAssertPreConditions()
+    {
+    }
+
+    protected function legacyAssertPostConditions()
+    {
+    }
+
+    protected function doAssertPostConditions()
+    {
     }
 }
