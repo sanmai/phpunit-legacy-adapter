@@ -107,6 +107,8 @@ There might be a polyfill for these changed methods, but it should not be a big 
         if ($method === 'expectExceptionMessageRegExp') {
             $this->expectExceptionMessageMatches(...$args);
         }
+        
+        throw new \InvalidArgumentException();
     }
 ```
 
