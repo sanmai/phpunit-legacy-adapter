@@ -25,36 +25,42 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     public static function setUpBeforeClass(): void
     {
         static::legacySetUpBeforeClass();
+        static::doSetUpBeforeClass();
     }
 
     /** {@inheritdoc} */
     public static function tearDownAfterClass(): void
     {
         static::legacyTearDownAfterClass();
+        static::doTearDownAfterClass();
     }
 
     /** {@inheritdoc} */
     protected function setUp(): void
     {
         $this->legacySetUp();
+        $this->doSetUp();
     }
 
     /** {@inheritdoc} */
     protected function tearDown(): void
     {
         $this->legacyTearDown();
+        $this->doTearDown();
     }
 
     /** {@inheritdoc} */
     protected function assertPreConditions(): void
     {
         $this->legacyAssertPreConditions();
+        $this->doAssertPreConditions();
     }
 
     /** {@inheritdoc} */
     protected function assertPostConditions(): void
     {
         $this->legacyAssertPostConditions();
+        $this->doAssertPostConditions();
     }
 
     // All replacement methods should go below. They better to be in a trait, but we don't have traits in PHP 5.3.

@@ -60,4 +60,4 @@ jobs:
 
       - name: Run tests
         run: |
-          php vendor/bin/phpunit --repeat=2
+          php vendor/bin/phpunit --repeat=3

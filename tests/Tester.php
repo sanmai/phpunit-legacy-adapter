@@ -46,10 +46,6 @@ final class Tester implements AfterLastTestHook
 
     public function executeAfterLastTest(): void
     {
-        if (1 < \count(\preg_grep('/legacyTearDownAfterClass/', Test::getActualCallSequence()))) {
-            return;
-        }
-
         self::assertSame(Test::getExpectedCallSequence(), Test::getActualCallSequence());
     }
 }

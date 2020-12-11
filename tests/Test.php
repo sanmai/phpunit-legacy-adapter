@@ -74,7 +74,7 @@ final class Test extends TestCase
 
     public static function getActualCallSequence(): array
     {
-        return self::$callSequence;
+        return \array_slice(self::$callSequence, 0, self::EXPECTED_SEQUENCE_LEN);
     }
 
     public static function getExpectedCallSequence(): array
