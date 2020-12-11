@@ -38,10 +38,10 @@ return PhpCsFixer\Config::create()
 
         '@Symfony' => true,
         '@Symfony:risky' => true,
-        '@PHP71Migration' => true,
-        '@PHP71Migration:risky' => true,
-        '@PHPUnit60Migration:risky' => true,
-        '@PHPUnit75Migration:risky' => true,
+        '@PHP71Migration' => false,
+        '@PHP71Migration:risky' => false,
+        '@PHPUnit60Migration:risky' => false,
+        '@PHPUnit75Migration:risky' => false,
         '@PhpCsFixer' => true,
         '@PhpCsFixer:risky' => true,
 
@@ -53,6 +53,7 @@ return PhpCsFixer\Config::create()
         'php_unit_test_case_static_method_calls' => false,
         'yoda_style' => true,
 
+        'array_syntax' => ['syntax' => 'long']
         'void_return' => null,
         'declare_strict_types' => false,
     ])
