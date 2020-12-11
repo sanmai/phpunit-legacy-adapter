@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.com/sanmai/phpunit-legacy-adapter.svg?branch=master)](https://travis-ci.com/sanmai/phpunit-legacy-adapter)
-
 ## PHPUnit Legacy Versions Adapter
 
 As you're here, you are probably well aware that PHPUnit 8+ requires [common template methods](https://phpunit.readthedocs.io/en/latest/fixtures.html) 
@@ -79,8 +77,12 @@ There are similar replacements for most other template method:
 
 ### Supported versions
 
-- 6.x version branch supports [PHPUnit 4](https://phpunit.de/getting-started/phpunit-4.html), [PHPUnit 5](https://phpunit.de/getting-started/phpunit-5.html), and [PHPUnit 6](https://phpunit.de/getting-started/phpunit-6.html). It was tested to work under PHP 5.3 - PHP 7.4.
-- 8.x version branch supports [PHPUnit 7](https://phpunit.de/getting-started/phpunit-7.html), [PHPUnit 8](https://phpunit.de/getting-started/phpunit-8.html), and [PHPUnit 9](https://phpunit.de/getting-started/phpunit-9.html). It was tested to work under PHP 7.1 - PHP 8.1.
+- 6.x version branch supports [PHPUnit 4](https://phpunit.de/getting-started/phpunit-4.html), [PHPUnit 5](https://phpunit.de/getting-started/phpunit-5.html), and [PHPUnit 6](https://phpunit.de/getting-started/phpunit-6.html). 
+  - It was tested to work under PHP 5.3 - PHP 7.4. 
+  - ![Continuous Integration](https://github.com/sanmai/phpunit-legacy-adapter/workflows/Continuous%20Integration/badge.svg?branch=master)
+- 8.x version branch supports [PHPUnit 7](https://phpunit.de/getting-started/phpunit-7.html), [PHPUnit 8](https://phpunit.de/getting-started/phpunit-8.html), and [PHPUnit 9](https://phpunit.de/getting-started/phpunit-9.html). 
+  - It was tested to work under PHP 7.1 - PHP 8.1.
+  - ![Continuous Integration](https://github.com/sanmai/phpunit-legacy-adapter/workflows/Continuous%20Integration/badge.svg?branch=legacy)
 - Future versions will likely follow the same pattern.
 
 ### What this library does not do
