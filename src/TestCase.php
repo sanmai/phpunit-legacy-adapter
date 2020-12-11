@@ -17,21 +17,17 @@
 
 namespace LegacyPHPUnit;
 
+use LegacyPHPUnit\Concerns\SetUpTearDownTrait;
+
 abstract class TestCase extends \PHPUnit\Framework\TestCase
 {
+    use SetUpTearDownTrait;
+
     /** {@inheritdoc} */
     public static function setUpBeforeClass()
     {
         static::legacySetUpBeforeClass();
         static::doSetUpBeforeClass();
-    }
-
-    public static function legacySetUpBeforeClass()
-    {
-    }
-
-    public static function doSetUpBeforeClass()
-    {
     }
 
     /** {@inheritdoc} */
@@ -41,27 +37,11 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
         static::doTearDownAfterClass();
     }
 
-    public static function legacyTearDownAfterClass()
-    {
-    }
-
-    public static function doTearDownAfterClass()
-    {
-    }
-
     /** {@inheritdoc} */
     protected function setUp()
     {
         $this->legacySetUp();
         $this->doSetUp();
-    }
-
-    protected function legacySetUp()
-    {
-    }
-
-    protected function doSetUp()
-    {
     }
 
     /** {@inheritdoc} */
@@ -71,14 +51,6 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
         $this->doTearDown();
     }
 
-    protected function legacyTearDown()
-    {
-    }
-
-    protected function doTearDown()
-    {
-    }
-
     /** {@inheritdoc} */
     protected function assertPreConditions()
     {
@@ -86,26 +58,10 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
         $this->doAssertPreConditions();
     }
 
-    protected function legacyAssertPreConditions()
-    {
-    }
-
-    protected function doAssertPreConditions()
-    {
-    }
-
     /** {@inheritdoc} */
     protected function assertPostConditions()
     {
         $this->legacyAssertPostConditions();
         $this->doAssertPostConditions();
-    }
-
-    protected function legacyAssertPostConditions()
-    {
-    }
-
-    protected function doAssertPostConditions()
-    {
     }
 }

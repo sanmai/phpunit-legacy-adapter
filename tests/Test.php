@@ -25,12 +25,16 @@ use LegacyPHPUnit\TestCase;
  */
 final class Test extends TestCase
 {
-    const EXPECTED_SEQUENCE_LEN = 6;
+    const EXPECTED_SEQUENCE_LEN = 12;
 
     private static $callSequence = array();
 
     public function testExample()
     {
+        if (self::EXPECTED_SEQUENCE_LEN !== count(self::getExpectedCallSequence())) {
+            $this->fail(sprintf('EXPECTED_SEQUENCE_LEN needs an update to %d', count(self::getExpectedCallSequence())));
+        }
+
         $this->assertTrue(count(self::$callSequence) > 0);
 
         if (count(self::$callSequence) > self::EXPECTED_SEQUENCE_LEN) {
