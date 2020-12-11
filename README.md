@@ -83,7 +83,8 @@ There are similar replacements for most other template method:
 - 8.x version branch supports [PHPUnit 7](https://phpunit.de/getting-started/phpunit-7.html), [PHPUnit 8](https://phpunit.de/getting-started/phpunit-8.html), and [PHPUnit 9](https://phpunit.de/getting-started/phpunit-9.html). 
   - It was tested to work under PHP 7.1 - PHP 8.1.
   - ![Continuous Integration](https://github.com/sanmai/phpunit-legacy-adapter/workflows/Continuous%20Integration/badge.svg?branch=legacy)
-- Future versions will likely follow the same pattern.
+
+Future versions will likely follow the same pattern.
 
 ### What this library does not do
 
