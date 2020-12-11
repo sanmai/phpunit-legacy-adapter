@@ -57,15 +57,31 @@ final class Test extends TestCase
             return __CLASS__.$method;
         }, array(
             '::legacySetUpBeforeClass',
+            '::doSetUpBeforeClass',
+
             '::legacySetUp',
+            '::doSetUp',
+
             '::legacyAssertPreConditions',
+            '::doAssertPreConditions',
+
             '::legacyAssertPostConditions',
+            '::doAssertPostConditions',
+
             '::legacyTearDown',
+            '::doTearDown',
+
             '::legacyTearDownAfterClass',
+            '::doTearDownAfterClass',
         ));
     }
 
     public static function legacySetUpBeforeClass()
+    {
+        self::add(__METHOD__);
+    }
+
+    public static function doSetUpBeforeClass()
     {
         self::add(__METHOD__);
     }
@@ -75,7 +91,17 @@ final class Test extends TestCase
         self::add(__METHOD__);
     }
 
+    public static function doTearDownAfterClass()
+    {
+        self::add(__METHOD__);
+    }
+
     protected function legacySetUp()
+    {
+        self::add(__METHOD__);
+    }
+
+    protected function doSetUp()
     {
         self::add(__METHOD__);
     }
@@ -85,12 +111,27 @@ final class Test extends TestCase
         self::add(__METHOD__);
     }
 
+    protected function doTearDown()
+    {
+        self::add(__METHOD__);
+    }
+
     protected function legacyAssertPreConditions()
     {
         self::add(__METHOD__);
     }
 
+    protected function doAssertPreConditions()
+    {
+        self::add(__METHOD__);
+    }
+
     protected function legacyAssertPostConditions()
+    {
+        self::add(__METHOD__);
+    }
+
+    protected function doAssertPostConditions()
     {
         self::add(__METHOD__);
     }
