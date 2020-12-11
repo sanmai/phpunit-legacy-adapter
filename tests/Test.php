@@ -27,7 +27,7 @@ final class Test extends TestCase
 {
     const EXPECTED_SEQUENCE_LEN = 6;
 
-    private static $callSequence = [];
+    private static $callSequence = array();
 
     public function testExample()
     {
@@ -54,15 +54,15 @@ final class Test extends TestCase
     public static function getExpectedCallSequence()
     {
         return \array_map(function ($method) {
-            return self::class.$method;
-        }, [
+            return __CLASS__.$method;
+        }, array(
             '::legacySetUpBeforeClass',
             '::legacySetUp',
             '::legacyAssertPreConditions',
             '::legacyAssertPostConditions',
             '::legacyTearDown',
             '::legacyTearDownAfterClass',
-        ]);
+        ));
     }
 
     public static function legacySetUpBeforeClass()
