@@ -91,7 +91,7 @@ Although this library solves the most annoying part of the problem, there are ot
 - In some versions one method is called `expectExceptionMessageRegExp`, while in others the same method is called `expectExceptionMessageMatches`.
 - And so on and on.
 
-There might be a polyfill for these changed methods, but it should not be a big deal to write an ad hoc polyfill just for the methods you need. E.g.:
+There are polyfills for these changed methods (see below), but it should not be a big deal to write an ad hoc polyfill just for the methods you need. E.g.:
 
 ```php
     public function __call($method, $args)
