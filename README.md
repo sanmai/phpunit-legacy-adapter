@@ -26,37 +26,37 @@ Then, where you had to use `setUp(): void`  template method, use `legacySetUp()`
 
 ```diff
 - protected function setUp(): void
-+ protected function legacySetUp()
++ protected function doSetUp()
 ```
 
 There are similar replacements for most other template method:
 
 ```diff
 - public static function setUpBeforeClass(): void
-+ public static function legacySetUpBeforeClass()
++ public static function doSetUpBeforeClass()
 ```
 
 ```diff
 - public static function tearDownAfterClass(): void
-+ public static function legacyTearDownAfterClass()
++ public static function doTearDownAfterClass()
 ```
 
 ```diff
 - protected function setUp(): void
-+ protected function legacySetUp()
++ protected function doSetUp()
 ```
 
 ```diff
 - protected function tearDown(): void
-+ protected function legacyTearDown()
++ protected function doTearDown()
 ```
 
 ```diff
 - protected function assertPreConditions(): void
-+ protected function legacyAssertPreConditions()
++ protected function doAssertPreConditions()
 ```
 
 ```diff
 - protected function assertPostConditions(): void
-+ protected function legacyAssertPostConditions()
++ protected function doAssertPostConditions()
 ```
