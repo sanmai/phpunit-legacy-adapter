@@ -26,55 +26,55 @@ First, update your tests to extend from `\LegacyPHPUnit\TestCase` instead of `\P
 + class MyTest extends \LegacyPHPUnit\TestCase
 ```
 
-Then, where you had to use `setUp(): void`  template method, use `legacySetUp()` method, omitting all any any return types in a fully backward-compatible way. 
+Then, where you had to use `setUp(): void`  template method, use `doSetUp()` method, omitting all any any return types in a fully backward-compatible way. 
 
 ```diff
 - protected function setUp(): void
-+ protected function legacySetUp()
++ protected function doSetUp()
 ```
 
 There are similar replacements for most other template method:
 
 ```diff
 - public static function setUpBeforeClass(): void
-+ public static function legacySetUpBeforeClass()
++ public static function doSetUpBeforeClass()
 ```
 
 ```diff
 - public static function tearDownAfterClass(): void
-+ public static function legacyTearDownAfterClass()
++ public static function doTearDownAfterClass()
 ```
 
 ```diff
 - protected function setUp(): void
-+ protected function legacySetUp()
++ protected function doSetUp()
 ```
 
 ```diff
 - protected function tearDown(): void
-+ protected function legacyTearDown()
++ protected function doTearDown()
 ```
 
 ```diff
 - protected function assertPreConditions(): void
-+ protected function legacyAssertPreConditions()
++ protected function doAssertPreConditions()
 ```
 
 ```diff
 - protected function assertPostConditions(): void
-+ protected function legacyAssertPostConditions()
++ protected function doAssertPostConditions()
 ```
 
 ### Reference
 
 |  Method     | Replacement                   |
 | ----------- | ----------------------------- |
-| `setUpBeforeClass(): void` | `legacySetUpBeforeClass()` |
-| `tearDownAfterClass(): void` | `legacyTearDownAfterClass()` |
-| `setUp(): void` | `legacySetUp()` |
-| `tearDown(): void` | `legacyTearDown()` |
-| `assertPreConditions(): void` | `legacyAssertPreConditions()` |
-| `assertPostConditions(): void` | `legacyAssertPostConditions()` |
+| `setUpBeforeClass(): void` | `doSetUpBeforeClass()` |
+| `tearDownAfterClass(): void` | `doTearDownAfterClass()` |
+| `setUp(): void` | `doSetUp()` |
+| `tearDown(): void` | `doTearDown()` |
+| `assertPreConditions(): void` | `doAssertPreConditions()` |
+| `assertPostConditions(): void` | `doAssertPostConditions()` |
 
 
 ### Supported versions

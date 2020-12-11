@@ -27,24 +27,41 @@ use LegacyPHPUnit\TestCase;
  */
 final class Test extends TestCase
 {
+    const EXPECTED_SEQUENCE_LEN = 12;
+
     private const EXPECTED_SEQUENCE = [
         '::legacySetUpBeforeClass',
+        '::doSetUpBeforeClass',
+
         '::legacySetUp',
+        '::doSetUp',
+
         '::legacyAssertPreConditions',
+        '::doAssertPreConditions',
+
         '::legacyAssertPostConditions',
+        '::doAssertPostConditions',
+
         '::legacyTearDown',
+        '::doTearDown',
+
         '::legacyTearDownAfterClass',
+        '::doTearDownAfterClass',
     ];
 
     private static $callSequence = [];
 
     public function testExample(): void
     {
+        if (self::EXPECTED_SEQUENCE_LEN !== \count(self::getExpectedCallSequence())) {
+            $this->fail(\sprintf('EXPECTED_SEQUENCE_LEN needs an update to %d', \count(self::getExpectedCallSequence())));
+        }
+
         $this->assertTrue(\count(self::$callSequence) > 0);
 
-        if (\count(self::$callSequence) > \count(self::EXPECTED_SEQUENCE)) {
+        if (\count(self::$callSequence) > self::EXPECTED_SEQUENCE_LEN) {
             $this->assertSame(
-                \array_slice(self::$callSequence, 0, \count(self::EXPECTED_SEQUENCE)),
+                \array_slice(self::$callSequence, 0, self::EXPECTED_SEQUENCE_LEN),
                 self::getExpectedCallSequence()
             );
         }
@@ -72,7 +89,17 @@ final class Test extends TestCase
         self::add(__METHOD__);
     }
 
+    public static function doSetUpBeforeClass()
+    {
+        self::add(__METHOD__);
+    }
+
     public static function legacyTearDownAfterClass()
+    {
+        self::add(__METHOD__);
+    }
+
+    public static function doTearDownAfterClass()
     {
         self::add(__METHOD__);
     }
@@ -82,7 +109,17 @@ final class Test extends TestCase
         self::add(__METHOD__);
     }
 
+    protected function doSetUp()
+    {
+        self::add(__METHOD__);
+    }
+
     protected function legacyTearDown()
+    {
+        self::add(__METHOD__);
+    }
+
+    protected function doTearDown()
     {
         self::add(__METHOD__);
     }
@@ -92,7 +129,17 @@ final class Test extends TestCase
         self::add(__METHOD__);
     }
 
+    protected function doAssertPreConditions()
+    {
+        self::add(__METHOD__);
+    }
+
     protected function legacyAssertPostConditions()
+    {
+        self::add(__METHOD__);
+    }
+
+    protected function doAssertPostConditions()
     {
         self::add(__METHOD__);
     }
