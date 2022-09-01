@@ -12,7 +12,7 @@ as mentioned, newer versions of PHPUnit require  `void` return type declarations
 rewriting tests to work without these template methods is a major pain and might be impossible even. And then this small library comes to save your day!
 
 ```
-composer require --dev sanmai/phpunit-legacy-adapter:"^6 || ^8"
+composer require --dev sanmai/phpunit-legacy-adapter:"^6.4 || ^8.2.1"
 ```
 
 ### How to use
