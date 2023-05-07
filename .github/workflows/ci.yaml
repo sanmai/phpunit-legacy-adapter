@@ -24,9 +24,10 @@ jobs:
           - '7.4'
           - '8.0'
           - '8.1'
+          - '8.2'
         dependencies: ['']
         include:
-          - { operating-system: 'ubuntu-latest', php-version: '8.2', dependencies: '' }
+          - { operating-system: 'ubuntu-latest', php-version: '8.3', dependencies: '' }
 
     name: PHP ${{ matrix.php-version }} CI on ${{ matrix.operating-system }}
 
