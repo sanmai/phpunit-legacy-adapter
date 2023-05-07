@@ -25,9 +25,10 @@ jobs:
           - '8.0'
           - '8.1'
           - '8.2'
-        dependencies: ['']
-        include:
-          - { operating-system: 'ubuntu-latest', php-version: '8.3', dependencies: '' }
+          - '8.3'
+        dependencies: 
+          - '--prefer-lowest'
+          - ''
 
     name: PHP ${{ matrix.php-version }} CI on ${{ matrix.operating-system }}
 
@@ -58,7 +59,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer update --optimize-autoloader --no-interaction --no-progress --prefer-lowest ${{ matrix.dependencies }}
+          composer update --optimize-autoloader --no-interaction --no-progress ${{ matrix.dependencies }}
 
       - name: Run tests
         run: |
