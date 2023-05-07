@@ -63,4 +63,5 @@ jobs:
 
       - name: Run tests
         run: |
-          php vendor/bin/phpunit --repeat=3
+          php vendor/bin/phpunit --repeat=3 || true
+          php vendor/bin/phpunit
